@@ -14,9 +14,6 @@ const PostForm = () => {
     userRef.current.focus()
   }, [])
 
-  // const onChange = (e) =>
-  //   setFormData({ ...formData, [e.target.name]: e.target.value })
-
   const handleTitleInput = (e) => setTitle(e.target.value)
   const handleBodyInput = (e) => setBody(e.target.value)
 
@@ -36,7 +33,7 @@ const PostForm = () => {
     try {
       axios
         .post(
-          "/api/v1/user/post",
+          "https://blog-web-api-onrender.com",
           {
             title,
             body,

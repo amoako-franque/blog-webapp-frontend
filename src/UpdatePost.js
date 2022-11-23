@@ -29,7 +29,7 @@ const UpdatePost = () => {
 
       if (token) {
         const response = await axios.get(
-          "/api/v1/get-user-by-id",
+          "https://blog-web-api-onrender.com",
 
           {
             headers: {
@@ -47,7 +47,9 @@ const UpdatePost = () => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        let response = await axios.get(`/api/v1/post/${slug}`)
+        let response = await axios.get(
+          `https://blog-web-api-onrender.com/${slug}`
+        )
         console.log(response.data)
         setTitle(response.data.post.title)
         setBody(response.data.post.body)
@@ -74,7 +76,7 @@ const UpdatePost = () => {
     try {
       axios
         .put(
-          `/api/v1/user/post/${slug}`,
+          `https://blog-web-api-onrender.com/${slug}`,
           {
             title,
             body,

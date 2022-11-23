@@ -26,7 +26,10 @@ const Register = () => {
     }
 
     try {
-      const response = await axios.post("/api/v1/register", formData)
+      const response = await axios.post(
+        "https://blog-web-api-onrender.com",
+        formData
+      )
       if (response.data.success) {
         //console.log(response.data)
         toast.success(response.data.message)

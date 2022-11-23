@@ -27,7 +27,10 @@ const Login = () => {
  
 
     try {
-      const response = await axios.post("/api/v1/login", formData)
+      const response = await axios.post(
+        "https://blog-web-api-onrender.com",
+        formData
+      )
       if (!response.error) {
         //console.log(response.data)
         toast.success(response.data.message)

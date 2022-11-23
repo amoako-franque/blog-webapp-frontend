@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 
 import axios from "axios"
-import {  useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import Navbar from "./Navbar"
 import UserNavbar from "./UserNavBar"
 
@@ -17,7 +17,7 @@ const Post = () => {
       const token = localStorage.getItem("token")
       if (token) {
         const response = await axios.get(
-          "/api/v1/get-user-by-id",
+          "https://blog-web-api-onrender.com",
 
           {
             headers: {
@@ -34,7 +34,9 @@ const Post = () => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        let response = await axios.get(`/api/v1/post/${slug}`)
+        let response = await axios.get(
+          `https://blog-web-api-onrender.com/${slug}`
+        )
         setPost(response.data.post)
       } catch (error) {
         console.log(error)
