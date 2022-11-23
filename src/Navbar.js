@@ -4,7 +4,7 @@ import { Link, NavLink } from "react-router-dom"
 
 const Navbar = () => {
   return (
-    <div className="top-0 flex items-center justify-between w-full p-10 tracking-wide  siteHeader h-14">
+    <div className="top-0 flex items-center justify-between w-full p-10 tracking-wide siteHeader h-14">
       <div className="flex items-center ">
         <div className="text-4xl bold text- p-14 hover:cursor-pointer">
           <AiFillCodepenCircle />

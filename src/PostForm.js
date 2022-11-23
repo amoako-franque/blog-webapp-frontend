@@ -33,7 +33,7 @@ const PostForm = () => {
     try {
       axios
         .post(
-          "https://blog-web-api-onrender.com",
+          "https://blogwebapp-api.onrender.com",
           {
             title,
             body,

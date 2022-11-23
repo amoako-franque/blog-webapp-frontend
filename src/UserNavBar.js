@@ -9,7 +9,7 @@ const UserNavbar = ({ user }) => {
 
   const handleLogout = async () => {
     try {
-      const res = await axios.post("https://blog-web-api-onrender.com")
+      const res = await axios.post("https://blogwebapp-api.onrender.com")
       if (res.data.success) {
         localStorage.clear()
         toast.success(res.data.message)

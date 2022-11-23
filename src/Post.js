@@ -17,7 +17,7 @@ const Post = () => {
       const token = localStorage.getItem("token")
       if (token) {
         const response = await axios.get(
-          "https://blog-web-api-onrender.com",
+          "https://blogwebapp-api.onrender.com",
 
           {
             headers: {
@@ -35,7 +35,7 @@ const Post = () => {
     const fetchPost = async () => {
       try {
         let response = await axios.get(
-          `https://blog-web-api-onrender.com/${slug}`
+          `https://blogwebapp-api.onrender.com/${slug}`
         )
         setPost(response.data.post)
       } catch (error) {

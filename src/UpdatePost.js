@@ -29,7 +29,7 @@ const UpdatePost = () => {
 
       if (token) {
         const response = await axios.get(
-          "https://blog-web-api-onrender.com",
+          "https://blogwebapp-api.onrender.com",
 
           {
             headers: {
@@ -48,7 +48,7 @@ const UpdatePost = () => {
     const fetchPost = async () => {
       try {
         let response = await axios.get(
-          `https://blog-web-api-onrender.com/${slug}`
+          `https://blogwebapp-api.onrender.com/${slug}`
         )
         console.log(response.data)
         setTitle(response.data.post.title)
@@ -76,7 +76,7 @@ const UpdatePost = () => {
     try {
       axios
         .put(
-          `https://blog-web-api-onrender.com/${slug}`,
+          `https://blogwebapp-api.onrender.com/${slug}`,
           {
             title,
             body,
