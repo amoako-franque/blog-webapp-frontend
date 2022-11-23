@@ -27,7 +27,7 @@ const Register = () => {
 
     try {
       const response = await axios.post(
-        "https://blogwebapp-api.onrender.com",
+        "https://blogwebapp-api.onrender.com/register",
         formData
       )
       if (response.data.success) {

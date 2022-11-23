@@ -9,7 +9,7 @@ const UserNavbar = ({ user }) => {
 
   const handleLogout = async () => {
     try {
-      const res = await axios.post("https://blogwebapp-api.onrender.com")
+      const res = await axios.post("https://blogwebapp-api.onrender.com/logout")
       if (res.data.success) {
         localStorage.clear()
         toast.success(res.data.message)
@@ -44,7 +44,7 @@ const UserNavbar = ({ user }) => {
       </div>
       {user ? (
         <div>
-          <span className="mr-4 hover:text-lime-200">{user.username}</span>
+          <span className="mr-4 capitalize hover:text-lime-200">{user.username}</span>
           <Link
             to="/login"
             onClick={handleLogout}

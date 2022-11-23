@@ -26,7 +26,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        "https://blogwebapp-api.onrender.com",
+        "https://blogwebapp-api.onrender.com/login",
         formData
       )
       if (!response.error) {

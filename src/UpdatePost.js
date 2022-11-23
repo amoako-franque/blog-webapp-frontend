@@ -29,7 +29,7 @@ const UpdatePost = () => {
 
       if (token) {
         const response = await axios.get(
-          "https://blogwebapp-api.onrender.com",
+          "https://blogwebapp-api.onrender.com/get-user-by-id",
 
           {
             headers: {
@@ -43,12 +43,12 @@ const UpdatePost = () => {
     }
     getUser()
   }, [])
-  console.log(user)
+
   useEffect(() => {
     const fetchPost = async () => {
       try {
         let response = await axios.get(
-          `https://blogwebapp-api.onrender.com/${slug}`
+          `https://blogwebapp-api.onrender.com/post/${slug}`
         )
         console.log(response.data)
         setTitle(response.data.post.title)
@@ -76,7 +76,7 @@ const UpdatePost = () => {
     try {
       axios
         .put(
-          `https://blogwebapp-api.onrender.com/${slug}`,
+          `https://blogwebapp-api.onrender.com/user/post/${slug}`,
           {
             title,
             body,

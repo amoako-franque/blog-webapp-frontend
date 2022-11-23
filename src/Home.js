@@ -14,7 +14,7 @@ const Home = () => {
     const getUser = async () => {
       if (token) {
         const response = await axios.get(
-          "https://blogwebapp-api.onrender.com",
+          "https://blogwebapp-api.onrender.com/get-user-by-id",
 
           {
             headers: {
@@ -31,7 +31,9 @@ const Home = () => {
 
   const fetchPosts = async () => {
     try {
-      let response = await axios.get("https://blogwebapp-api.onrender.com")
+      let response = await axios.get(
+        "https://blogwebapp-api.onrender.com/posts"
+      )
       //console.log(response.data.posts)
       setPosts(response.data.posts)
     } catch (error) {

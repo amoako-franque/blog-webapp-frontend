@@ -13,7 +13,7 @@ const Timeline = ({ posts, user }) => {
 
   const handleDelete = async (slg) => {
     try {
-      await axios.delete(`https://blogwebapp-api.onrender.com/${slg}`, {
+      await axios.delete(`https://blogwebapp-api.onrender.com/user/post/${slg}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

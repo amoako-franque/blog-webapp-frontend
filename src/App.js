@@ -8,9 +8,6 @@ import Register from "./Register"
 import UpdatePost from "./UpdatePost"
 
 function App() {
-  const user = localStorage.getItem("user")
-  user && console.log(user)
-
   return (
     <div className="">
       <ToastContainer
