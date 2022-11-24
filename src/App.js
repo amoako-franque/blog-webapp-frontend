@@ -1,4 +1,5 @@
-import { Route, Routes } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { Route, Routes, useNavigate } from "react-router-dom"
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import Home from "./Home"
@@ -6,8 +7,35 @@ import Login from "./Login"
 import Post from "./Post"
 import Register from "./Register"
 import UpdatePost from "./UpdatePost"
+import axios from "axios"
 
 function App() {
+  const [user, setUser] = useState({})
+  const navigate = useNavigate()
+
+  const token = localStorage.getItem("token")
+
+  useEffect(() => {
+    const getUser = async () => {
+      if (!token) {
+        navigate("/login")
+      }
+      if (token) {
+        const response = await axios.get(
+          "/api/v1/get-user-by-id",
+
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
+        //console.log(response.data.data)
+        setUser(response.data.data)
+      }
+    }
+    getUser()
+  }, [])
   return (
     <div className="">
       <ToastContainer
@@ -25,7 +53,7 @@ function App() {
         theme="dark"
       />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={user ? <Home /> : <Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/post/:slug" element={<Post />} />

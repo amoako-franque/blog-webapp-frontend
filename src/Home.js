@@ -4,14 +4,20 @@ import Timeline from "./Timeline"
 import axios from "axios"
 import Navbar from "./Navbar"
 import UserNavbar from "./UserNavBar"
+import { useNavigate } from "react-router-dom"
 
 const Home = () => {
   const [posts, setPosts] = useState([])
   const token = localStorage.getItem("token")
   const [user, setUser] = useState({})
 
+  const navigate = useNavigate()
+
   useEffect(() => {
     const getUser = async () => {
+      if (!token) {
+        navigate("/login")
+      }
       if (token) {
         const response = await axios.get(
           "https://blogwebapp-api.onrender.com/get-user-by-id",
@@ -49,8 +55,8 @@ const Home = () => {
 
   return (
     <>
-      {user?.username ? <UserNavbar user={user} /> : <Navbar />}{" "}
-      {user?.username ? (
+      {user ? <UserNavbar user={user} /> : <Navbar />}{" "}
+      {user? (
         <div className="flex flex-col items-center h-screen mx-96">
           <PostForm />
 

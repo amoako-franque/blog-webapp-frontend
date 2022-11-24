@@ -49,7 +49,7 @@ const Timeline = ({ posts, user }) => {
                   <span>Posted on: {post.createdAt}</span>
                 </span>
               </div>
-              {user._id === post.postedBy._id && (
+              {user?._id === post.postedBy._id && (
                 <div>
                   <Link
                     to={`/user/post/${post.slug}`}
